@@ -1,9 +1,10 @@
 @import '@root/_fct.gs.avt';
 
 :host {
+	background-color: #7ff3f3;
 	rk-img {
-		--img-stroke-color: transparent;
-		--img-fill-color: #acf4d6;
+		--img-fill-color: transparent;
+		--img-stroke-color: #cd996c;
 		max-height: 100%;
 		flex-grow: 1;
 		padding: 10%;

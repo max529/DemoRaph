@@ -1,0 +1,7 @@
+namespace Routes {
+
+	export class MainRoute extends Aventus.HttpRoute {
+
+	}
+
+}

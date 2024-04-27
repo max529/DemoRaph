@@ -9,14 +9,13 @@
 			"compile": [
 				{
 					"output": [
-						"../_export/wwwroot/apps/DemoRaph/index.js",
-						"%RAYUKI_WWW_PATH%/apps/DemoRaph/index.js"
+						"../_run/wwwroot/apps/DemoRaph/index.js"
 					]
 				}
 			],
 			"dependances": [
 				{
-					"uri": "D:\\Rayuki\\Libs\\RayukiCore\\Core.package.avt",
+					"uri": "../Libs/Core.package.avt",
 					"include": "none"
 				},
 				{
@@ -43,14 +42,13 @@
 			"compile": [
 				{
 					"output": [
-						"../_export/wwwroot/apps/DemoRaph/icon.js",
-						"%RAYUKI_WWW_PATH%/apps/DemoRaph/icon.js"
+						"../_run/wwwroot/apps/DemoRaph/icon.js"
 					]
 				}
 			],
 			"dependances": [
 				{
-					"uri": "D:\\Rayuki\\Libs\\RayukiCore\\Core.package.avt",
+					"uri": "../Libs/Core.package.avt",
 					"include": "none"
 				},
 				{
@@ -79,8 +77,7 @@
 			"name": "Main",
 			"input": "./static",
 			"output": [
-				"../_export/wwwroot/apps/DemoRaph/",
-				"%RAYUKI_WWW_PATH%/apps/DemoRaph/"
+				"../_run/wwwroot/apps/DemoRaph/"
 			]
 		}
 	],

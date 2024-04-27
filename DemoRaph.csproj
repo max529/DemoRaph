@@ -10,10 +10,10 @@
 
   <ItemGroup>
     <Reference Include="AventusSharp">
-      <HintPath>D:\Rayuki\Libs\AventusSharp\AventusSharp.dll</HintPath>
+      <HintPath>.\Libs\AventusSharp.dll</HintPath>
     </Reference>
     <Reference Include="Core">
-      <HintPath>D:\Rayuki\Libs\RayukiCore\Core.dll</HintPath>
+      <HintPath>.\Libs\Core.dll</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -26,9 +26,8 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /F /R /Y /I &quot;$(ProjectDir)$(OutDir)$(AssemblyName).dll&quot; &quot;$(ProjectDir)_export\apps\$(AssemblyName)\ &quot;" Condition="'$(Configuration)' == 'Release'" />
-    <Exec Command="xcopy /F /R /Y /I &quot;$(ProjectDir)$(OutDir)$(AssemblyName).dll&quot; &quot;$(RAYUKI_APP_PATH)\$(AssemblyName)\ &quot;" Condition="'$(Configuration)' == 'Debug'" />
-    <Exec Command="xcopy /F /R /Y /I &quot;$(ProjectDir)$(OutDir)$(AssemblyName).dll&quot; &quot;$(ProjectDir)_export\apps\$(AssemblyName)\ &quot;" Condition="'$(Configuration)' == 'Debug'" />
+    <Exec Command="xcopy /F /R /Y /I &quot;$(ProjectDir)$(OutDir)$(AssemblyName).dll&quot; &quot;$(ProjectDir)_run\apps\$(AssemblyName)\ &quot;" Condition="'$(Configuration)' == 'Release'" />
+    <Exec Command="xcopy /F /R /Y /I &quot;$(ProjectDir)$(OutDir)$(AssemblyName).dll&quot; &quot;$(ProjectDir)_run\apps\$(AssemblyName)\ &quot;" Condition="'$(Configuration)' == 'Debug'" />
   </Target>
 
 

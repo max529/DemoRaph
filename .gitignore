@@ -5,3 +5,9 @@ bin
 compiled.js
 compiled.ts
 compiled.html
+_run/apps
+_run/Chrome
+_run/ChromeHeadlessShell
+_run/wwwroot/apps/DemoRaph
+_run/wwwroot/users
+_run/wwwroot/desktops
