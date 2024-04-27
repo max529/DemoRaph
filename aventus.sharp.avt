@@ -1,0 +1,11 @@
+﻿{
+  "outputPath": "./Front/src/generated",
+  "csProj": "./DemoRaph.csproj",
+  "exportEnumByDefault": true,
+  "httpRouter": {
+    "uri": "/DemoRaph",
+    "routerName": "DemoRaphRouter",
+    "namespace": "Routes",
+    "variableRoutesName": "DemoRaphHttpRoutes"
+  }
+}

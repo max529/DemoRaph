@@ -1,0 +1,91 @@
+{
+    "module": "DemoRaph",
+    "build": [
+        {
+			"name": "Main",
+			"src": [
+				"./src/*"
+			],
+			"compile": [
+				{
+					"output": [
+						"../_export/wwwroot/apps/DemoRaph/index.js",
+						"%RAYUKI_WWW_PATH%/apps/DemoRaph/index.js"
+					]
+				}
+			],
+			"dependances": [
+				{
+					"uri": "D:\\Rayuki\\Libs\\RayukiCore\\Core.package.avt",
+					"include": "none"
+				},
+				{
+					"uri": "@Aventus",
+					"include": "none"
+				},
+				{
+					"uri": "@AventusUI",
+					"include": "none"
+				},
+				{
+					"uri": "@AventusSharp",
+					"include": "none"
+				}
+			],
+			"namespaceStrategy": "followFoldersCamelCase",
+			"namespaceRoot": "./src"
+		},
+		{
+			"name": "Icon",
+			"src": [
+				"./icon/*"
+			],
+			"compile": [
+				{
+					"output": [
+						"../_export/wwwroot/apps/DemoRaph/icon.js",
+						"%RAYUKI_WWW_PATH%/apps/DemoRaph/icon.js"
+					]
+				}
+			],
+			"dependances": [
+				{
+					"uri": "D:\\Rayuki\\Libs\\RayukiCore\\Core.package.avt",
+					"include": "none"
+				},
+				{
+					"uri": "@Aventus",
+					"include": "none"
+				},
+				{
+					"uri": "@AventusUI",
+					"include": "none"
+				},
+				{
+					"uri": "@AventusSharp",
+					"include": "none"
+				}
+			],
+			"namespaceStrategy": "rules",
+			"namespaceRules": {
+                "System": [
+                    "./icon/*"
+                ]
+			}
+		}
+    ],
+	"static": [
+		{
+			"name": "Main",
+			"input": "./static",
+			"output": [
+				"../_export/wwwroot/apps/DemoRaph/",
+				"%RAYUKI_WWW_PATH%/apps/DemoRaph/"
+			]
+		}
+	],
+    "aliases": {
+        "@root": "./",
+        "~": "/apps/DemoRaph"
+    }
+}
