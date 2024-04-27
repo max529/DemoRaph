@@ -9009,7 +9009,6 @@ Components.FormElement = class FormElement extends Aventus.WebComponent {
         Components.FormElement.onFormPartChange(this, path, value);
     }
     static async validate(element) {
-        element.errors = [];
         if (element.formPart?.validate) {
             let result = element.formPart.validate(element.value);
             if (result instanceof Promise) {
@@ -9020,12 +9019,13 @@ Components.FormElement = class FormElement extends Aventus.WebComponent {
                 return true;
             }
             if (result === false) {
-                element.errors.push("Le champs n'est pas valide");
+                element.errors = ["Le champs n'est pas valide"];
                 return false;
             }
-            element.errors.push(result);
+            element.errors = [result];
             return false;
         }
+        element.errors = [];
         return true;
     }
     static async setValue(part, value) {
