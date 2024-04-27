@@ -1,0 +1,37 @@
+import { TodoRoute } from './Routes/TodoRoute.lib.avt';
+
+namespace Websocket {
+
+	export const MainEndPointRoutes: [
+		AventusSharp.WebSocket.RouteType<typeof TodoRoute, "Todo">,
+		] = [
+		{ type: TodoRoute, path: "Todo" },
+	] as const;
+	
+	export const MainEndPointEvents: [
+		] = [
+	] as const;
+	
+	export const MainEndPointType: AventusSharp.WebSocket.EndPointType<{
+		routes: typeof MainEndPointRoutes,
+		events: typeof MainEndPointEvents
+		}, typeof Core.Websocket.MainEndPoint> = AventusSharp.WebSocket.EndPoint.WithRoute({
+		routes: MainEndPointRoutes,
+		events: MainEndPointEvents
+	}, Core.Websocket.MainEndPoint);
+	
+	export class MainEndPoint extends MainEndPointType {
+		
+		/**
+		 * Create a singleton
+		 */
+		public static override getInstance(): MainEndPoint {
+			return Aventus.Instance.get(MainEndPoint);
+		}
+		
+		protected override get path(): string {
+			return "/ws";
+		}
+	}
+
+}

@@ -1,0 +1,17 @@
+import { Todo } from '../../Data/Todo.data.avt';
+
+namespace Websocket.Routes {
+
+	export class TodoRoute extends AventusSharp.WebSocket.StorableWsRoute<Todo> {
+		public StorableName() {
+			return "Todo";
+		}
+
+		
+		public override getPrefix(): string {
+			return "/DemoRaph";
+		}
+	}
+
+
+}

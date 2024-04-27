@@ -1,0 +1,89 @@
+import { TodoPopupCreate } from "./TodoPopupCreate/TodoPopupCreate.wcl.avt";
+import type { Todo } from "../../../../generated/Data/Todo.data.avt";
+import { TodoRAM } from "../../../../ram/Todo.ram.avt";
+
+namespace Application.Main.Frame {
+    export class TodoPage extends Core.System.Frame implements Aventus.DefaultComponent {
+
+        //#region static
+
+        //#endregion
+
+
+        //#region props
+
+        //#endregion
+
+
+        //#region variables
+        @Watch()
+        public todos: Todo[] = [];
+        //#endregion
+
+
+        //#region constructor
+
+        //#endregion
+
+
+        //#region methods
+        /**
+         * @inheritdoc
+         */
+        public override pageTitle(): string | undefined {
+            return "Vos todos";
+        }
+        /**
+         * @inheritdoc
+         */
+        public override onShow() {
+
+        }
+        /**
+         * @inheritdoc
+         */
+        public override onHide() {
+        }
+
+        /**
+         * 
+         */
+        protected async addTodo() {
+            let popup = new TodoPopupCreate();
+            let result = await this.application.popup(popup);
+            if(result) {
+                let ram = TodoRAM.getInstance();
+                await this.application.executeWithLoading(ram.createWithError(result));
+            }
+        }
+
+        @BindThis()
+        protected onCreated(todo: Todo) {
+            debugger
+            this.todos.push(todo);
+        }
+        @BindThis()
+        protected onDeleted(todo: Todo) {
+            let index = this.todos.findIndex(p => p.Id == todo.Id);
+            if(index != -1) {
+                this.todos.splice(index, 1);
+            }
+        }
+        protected async loadData() {
+            const ram = TodoRAM.getInstance();
+            let result = await this.application.executeWithLoading(ram.getListWithError());
+            if(result) {
+                this.todos = result;
+            }
+            ram.onCreated(this.onCreated);
+            ram.onDeleted(this.onDeleted);
+            
+        }
+
+        protected override postCreation(): void {
+            this.loadData();
+        }
+        //#endregion
+
+    }
+}

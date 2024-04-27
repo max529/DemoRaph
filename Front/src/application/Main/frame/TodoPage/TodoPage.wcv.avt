@@ -1,0 +1,12 @@
+<h1>Vos todos</h1>
+<div class="add">
+    <rk-button @press="addTodo">Ajouter un todo</rk-button>
+</div>
+if(this.todos.length == 0) {
+    <p>Vous n'avez pas de choses a faire</p>
+}
+else {
+    for(let todo of this.todos) {
+        <demo-raph-todo-display :todo="todo"></demo-raph-todo-display>
+    }
+}

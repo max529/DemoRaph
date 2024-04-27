@@ -1,0 +1,76 @@
+import { Todo } from "../../../../../generated/Data/Todo.data.avt";
+
+namespace Application.Main.Frame.Todopage {
+    export class TodoPopupCreate extends Core.Components.Popup<Todo | null, Core.Components.PopupInfo> implements Aventus.DefaultComponent {
+
+        //#region static
+
+        //#endregion
+
+
+        //#region props
+
+        //#endregion
+
+
+        //#region variables
+        protected todo: Todo;
+        protected form: Core.Components.VirtualForm<{
+            Name: string;
+        }>;
+        //#endregion
+
+
+        //#region constructor
+        public constructor() {
+            super();
+            this.todo = new Todo();
+            this.form = Core.Components.Form.create({
+                Name: {
+                    value: {
+                        get: () => { return this.todo.Name; },
+                        set: (value) => { this.todo.Name = value; }
+                    },
+                    validate: (value) => {
+                        if(!value || value.length < 3) {
+                            return "Votre texte doit être plus long que 3";
+                        }
+                        return true;
+                    }
+                }
+            });
+        }
+        //#endregion
+
+
+        //#region methods
+
+
+        /**
+         * @inheritdoc
+         */
+        public override defaultOptions(): Core.Components.PopupInfo {
+            return {
+                title: "Création de todo",
+                min_width: '300px'
+            };
+        }
+        /**
+         * @inheritdoc
+         */
+        protected override cancel(): void {
+            this.resolve(null);
+        }
+        /**
+         * 
+         */
+        protected async save() {
+            if(await this.form.validate()) {
+                this.resolve(this.todo);
+            }
+        }
+
+        //#endregion
+
+    }
+}

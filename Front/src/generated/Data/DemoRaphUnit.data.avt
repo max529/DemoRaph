@@ -1,0 +1,9 @@
+namespace Data {
+
+	@Convertible()
+	export class DemoRaphUnit extends AventusSharp.Data.Storable implements Aventus.IData {
+		public static override get Fullname(): string { return "DemoRaph.Data.DemoRaphUnit, DemoRaph"; }
+		public Name: string = "";
+	}
+
+}

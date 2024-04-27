@@ -1,1 +1,5 @@
-<slot></slot>
+<h1>Bienvenue sur l'application de gestion des todos</h1>
+
+<div class="center">
+    <rk-button><rk-link to="/todo">Voir vos todos</rk-link></rk-button>
+</div>

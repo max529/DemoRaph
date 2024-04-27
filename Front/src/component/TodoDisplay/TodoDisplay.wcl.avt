@@ -1,0 +1,39 @@
+import { TodoRAM } from "../../ram/Todo.ram.avt";
+import type { Todo } from "../../generated/Data/Todo.data.avt";
+
+namespace Component {
+    export class TodoDisplay extends Aventus.WebComponent implements Aventus.DefaultComponent {
+
+        //#region static
+
+        //#endregion
+
+
+        //#region props
+        @Watch()
+        public todo!: Todo;
+        //#endregion
+
+
+        //#region variables
+
+        //#endregion
+
+
+        //#region constructor
+
+        //#endregion
+
+
+        //#region methods
+        /**
+		 * 
+		 */
+        protected deleteTodo() {
+            let ram = TodoRAM.getInstance();
+			Core.Lib.Process.executeWithLoading(this, ram.deleteWithError(this.todo));
+        }
+        //#endregion
+
+    }
+}

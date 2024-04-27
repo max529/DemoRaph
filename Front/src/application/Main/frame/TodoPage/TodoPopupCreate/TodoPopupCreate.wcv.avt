@@ -1,0 +1,4 @@
+<rk-input label="Nom du todo" :formPart="this.form.Name"></rk-input>
+<div class="center">
+    <rk-button color="green" @press="save">Valider</rk-button>
+</div>

@@ -1,0 +1,4 @@
+<div class="name">{{ this.todo.Name }}</div>
+<div class="action">
+    <mi-icon icon="delete" class="delete touch" @press="deleteTodo"></mi-icon>
+</div>

@@ -1,0 +1,17 @@
+import { DemoRaphUnit } from '../Data/DemoRaphUnit.data.avt';
+
+namespace Routes {
+
+	export class DemoRaphUnitRoute extends AventusSharp.Routes.StorableRoute<DemoRaphUnit> {
+		public async MyCustomRoute(): Promise<Aventus.ResultWithError<DemoRaphUnit[], Aventus.GenericError<number>>> {
+			const request = new Aventus.HttpRequest(`${this.getPrefix()}/custom`, Aventus.HttpMethod.GET);
+			type TypeResult = DemoRaphUnit[];
+			return await request.queryJSON<TypeResult>(this.router);
+		}
+
+		public StorableName() {
+			return "DemoRaphUnit";
+		}
+	}
+
+}

@@ -1,3 +1,4 @@
+import { TodoPage } from "./frame/TodoPage/TodoPage.wcl.avt";
 import { Index } from "./frame/Index/Index.wcl.avt";
 
 namespace Application {
@@ -29,6 +30,7 @@ namespace Application {
 		 */
 		protected override async defineRoutes(): Promise<void> {
 			this.addRoute("/", Index);
+			this.addRoute("/todo", TodoPage);
 		 }
 		//#endregion
 		

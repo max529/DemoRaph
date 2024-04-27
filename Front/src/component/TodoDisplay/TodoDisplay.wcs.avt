@@ -1,0 +1,14 @@
+:host {
+	display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--secondary-color);
+    margin: 5px 0;
+    .name {
+        flex-grow: 1;
+    }
+    .delete {
+        color:var(--red);
+    }
+}
